@@ -2,7 +2,8 @@ program XSD_TEST;
 
 uses
   Vcl.Forms,
-  Main in 'Main.pas' {MainForm};
+  Main in 'Main.pas' {MainForm},
+  Default_CBI_Sale in 'Default_CBI_Sale.pas';
 
 {$R *.res}
 
