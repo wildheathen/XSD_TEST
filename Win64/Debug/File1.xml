@@ -1,0 +1,41 @@
+<Invoice xmlns="http://www.microarea.it/Schema/2004/Smart/ERP/Sales/Invoice/Standard/Default_CBI.xsd" xTechProfile="Default" tbNamespace="Document.ERP.?Sales?.Documents.Invoice">
+	<Data>
+		<SaleDocument>
+			<DocumentDate>01/07/2023</DocumentDate>
+		</SaleDocument>
+		<Detail>
+			<DetailRow>
+				<Line2>Line_farlocca</Line2>
+				<LineType enum="Franco" EnumNameSpace="Franco_Namespace"/>
+				<Item>myItem0</Item>
+				<Qty>3</Qty>
+			</DetailRow>
+			<DetailRow>
+				<Line2>Line_farlocca</Line2>
+				<LineType enum="Franco" EnumNameSpace="Franco_Namespace"/>
+				<Item>myItem1</Item>
+				<Qty>2</Qty>
+				<Discount1>420</Discount1>
+			</DetailRow>
+			<DetailRow>
+				<Line2>Line_farlocca</Line2>
+				<LineType enum="Franco" EnumNameSpace="Franco_Namespace"/>
+				<Item>myItem2</Item>
+				<Qty>9</Qty>
+			</DetailRow>
+			<DetailRow>
+				<Line2>Line_farlocca</Line2>
+				<LineType enum="Franco" EnumNameSpace="Franco_Namespace"/>
+				<Item>myItem3</Item>
+				<Qty>13</Qty>
+			</DetailRow>
+			<DetailRow>
+				<Line2>Line_farlocca</Line2>
+				<LineType enum="Franco" EnumNameSpace="Franco_Namespace"/>
+				<Item>myItem4</Item>
+				<Qty>12</Qty>
+				<Discount1>420</Discount1>
+			</DetailRow>
+		</Detail>
+	</Data>
+</Invoice>

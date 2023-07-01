@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.microarea.it/Schema/2004/Smart/ERP/Sales/Invoice/Standard/Default_CBI.xsd" id="InvoiceDefault_CBI" xmlns="http://www.microarea.it/Schema/2004/Smart/ERP/Sales/Invoice/Standard/Default_CBI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xdb="http://www.borland.com/schemas/delphi/10.0/XMLDataBinding">
+	<xs:complexType name="SaleDocument">
+		<xs:sequence>
+			<xs:element name="DocumentType" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="52"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.Sales"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DocNo" type="string10" minOccurs="0"></xs:element>
+			<xs:element name="DocumentDate" type="xs:date" minOccurs="0"></xs:element>
+			<xs:element name="CustSuppType" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="49"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.CustomersSuppliers"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustSupp" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CustomersSuppliers" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CustSuppType" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="CustSupp" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="CompanyName" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="TaxIdNumber" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="FiscalCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Address" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="ZIPCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="City" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="County" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Country" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Telephone1" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Fax" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="ISOCountryCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="NaturalPerson" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="IBAN" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="ExternalCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="CBICode" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="OtherBranches" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OtherBranchesRow" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CustSuppType" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="CustSupp" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="Branch" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="CompanyName" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="Address" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="ZIPCode" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="City" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="County" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="Country" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="ISOCountryCode" type="xs:string" minOccurs="0"></xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Options" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CustSuppType" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Customer" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="ExemptFromTax" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Language" type="string8" minOccurs="0"></xs:element>
+			<xs:element name="OurReference" type="string32" minOccurs="0"></xs:element>
+			<xs:element name="YourReference" type="string32" minOccurs="0"></xs:element>
+			<xs:element name="PymtTerm" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PaymentTerms" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Payment" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CustomerBank" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Banks" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Bank" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="IsACompanyBank" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Swift" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CompanyBank" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Banks" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Bank" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="IsACompanyBank" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Account" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Swift" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="PreferredCA" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BanksCAs" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BanksCAsRow" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Bank" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="IsACompanyBank" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="CA" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="IBAN" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="Presentation" type="xs:string" minOccurs="1"></xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BillsCAs" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BillsCAsRow" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Bank" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="IsACompanyBank" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="CA" type="xs:string" minOccurs="1"></xs:element>
+												<xs:element name="IBAN" type="xs:string" minOccurs="0"></xs:element>
+												<xs:element name="Presentation" type="xs:string" minOccurs="1"></xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SendDocumentsTo" type="string8" minOccurs="0"></xs:element>
+			<xs:element name="Currency" type="string8" minOccurs="0"></xs:element>
+			<xs:element name="Fixing" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Company" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Company" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CompanyId" type="xs:int" minOccurs="1"></xs:element>
+									<xs:element name="CompanyName" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="TaxIdNumber" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="FiscalCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Address" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="ZIPCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="City" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="County" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="ISOCountryCode" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="NaturalPerson" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="CBICode" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TBGuid" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Notes">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Notes" type="string251" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DetailRow">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Line" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:short">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LineType" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="54"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.InvoiceMng"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Description" type="string128" minOccurs="0"></xs:element>
+			<xs:element name="Item" type="string21" minOccurs="0"></xs:element>
+			<xs:element name="UnitsOfMeasure" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UnitsOfMeasure" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BaseUoM" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Symbol" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Qty" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="UnitValue" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxableAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxCode" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TaxCode" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TaxCode" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Perc" type="xs:double" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TotalAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="Discount1" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="Discount2" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="DiscountFormula" type="string16" minOccurs="0"></xs:element>
+			<xs:element name="DiscountAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="NoOfPacks" type="xs:short" minOccurs="0"></xs:element>
+			<xs:element name="PacksUoM" type="string8" minOccurs="0"></xs:element>
+			<xs:element name="GrossWeight" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="NetWeight" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="SaleOrdId" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="SaleOrdNo" type="string10" minOccurs="0"></xs:element>
+			<xs:element name="Packing" type="string32" minOccurs="0"></xs:element>
+			<xs:element name="CombinedNomenclature" type="string8" minOccurs="0"></xs:element>
+			<xs:element name="CountyOfOrigin" type="string3" minOccurs="0"></xs:element>
+			<xs:element name="DeliveryNote" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SaleDocument" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="DocNo" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="DocumentDate" type="xs:date" minOccurs="0"></xs:element>
+									<xs:element name="SaleDocId" type="xs:int" minOccurs="1"></xs:element>
+									<xs:element name="TBGuid" type="xs:string" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ReferenceDocType" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="52"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.Sales"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CPACode" type="string12" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Detail">
+		<xs:sequence>
+			<xs:element name="DetailRow" type="DetailRow" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TaxSummaryRow">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TaxCode" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TaxCodeSummaryRow" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TaxCode" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TaxCode" type="xs:string" minOccurs="1"></xs:element>
+									<xs:element name="Description" type="xs:string" minOccurs="0"></xs:element>
+									<xs:element name="Perc" type="xs:double" minOccurs="0"></xs:element>
+								</xs:sequence>
+								<xs:attribute name="master" type="xs:boolean" fixed="true"></xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="externalReference" type="xs:boolean" fixed="true"></xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TaxableAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TotalAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxableAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TotalAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxSummary">
+		<xs:sequence>
+			<xs:element name="TaxSummaryRow" type="TaxSummaryRow" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Charges">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TaxableAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TotalAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="GoodsAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="ServiceAmounts" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="PayableAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="FreeSamples" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="Discounts" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="Allowances" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="Advance" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="PackagingCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="ShippingCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="StampsCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="CollectionCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="AdditionalCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="CashOnDeliveryCharges" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TotalAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxableAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="TaxAmountDocCurr" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="WithholdingTaxManagement" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="ProfessionalsCash" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="WithholdingTax" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="PaymentTerm" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="41"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.PaymentTerms"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AmountsWithWHTax" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Shipping">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NoOfPacks" type="xs:short" minOccurs="0"></xs:element>
+			<xs:element name="NetWeight" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="GrossWeight" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="DepartureDate" type="xs:date" minOccurs="0"></xs:element>
+			<xs:element name="Transport" type="string16" minOccurs="0"></xs:element>
+			<xs:element name="PackageDescription" type="string32" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PymtScheduleRow">
+		<xs:sequence>
+			<xs:element name="SaleDocId" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InstallmentNo" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:short">
+							<xs:attribute name="primaryKey" type="xs:boolean" fixed="true"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InstallmentType" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="enum" type="xs:string" fixed="41"></xs:attribute>
+							<xs:attribute name="EnumNameSpace" type="xs:string" fixed="Module.ERP.PaymentTerms"></xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DueDate" type="xs:date" minOccurs="0"></xs:element>
+			<xs:element name="InstallmentAmount" type="xs:double" minOccurs="0"></xs:element>
+			<xs:element name="InstallmentTaxAmount" type="xs:double" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PymtSchedule">
+		<xs:sequence>
+			<xs:element name="PymtScheduleRow" type="PymtScheduleRow" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="updateType" type="xs:integer" fixed="0"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Data">
+		<xs:sequence>
+			<xs:element name="SaleDocument" type="SaleDocument" minOccurs="1" maxOccurs="1"></xs:element>
+			<xs:element name="Notes" type="Notes" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="Detail" type="Detail" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="TaxSummary" type="TaxSummary" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="Charges" type="Charges" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="Shipping" type="Shipping" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="PymtSchedule" type="PymtSchedule" minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Diagnostic">
+		<xs:sequence>
+			<xs:element name="Errors" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Error" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Code" type="xs:int" minOccurs="0" maxOccurs="1"></xs:element>
+									<xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+									<xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Warnings" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Warning" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Code" type="xs:int" minOccurs="0" maxOccurs="1"></xs:element>
+									<xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+									<xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="string8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string10">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string12">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string251">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="251"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string16">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string3">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string32">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string128">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="128"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string21">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="21"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Invoice">
+		<xs:complexType>
+			<xs:annotation>
+        <xs:appinfo xdb:docElement="Invoice"/>
+      </xs:annotation>
+      <xs:sequence>
+				<xs:element name="Data" type="Data" minOccurs="1" maxOccurs="1"></xs:element>
+				<xs:element name="Diagnostic" type="Diagnostic" minOccurs="0" maxOccurs="1"></xs:element>
+			</xs:sequence>
+			<xs:attribute name="tbNamespace" type="xs:string" fixed="Document.ERP.Sales.Documents.Invoice"></xs:attribute>
+			<xs:attribute name="xTechProfile" type="xs:string" fixed="Default_CBI"></xs:attribute>
+			<xs:attribute name="postable" type="xs:boolean" fixed="true"></xs:attribute>
+			<xs:attribute name="postBack" type="xs:boolean" fixed="true"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
